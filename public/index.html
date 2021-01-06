@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Shop</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body onload="connectdb()">
+        <header id="main-header">
+                <h1>The Shop</h1>
+                <div class="header-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="document.location='register.html'">Register</button>
+                    <button type="button" class="btn btn-success" onclick="document.location='login.html'">Log In</button>
+                </div>
+        </header>
+
+        <div class="today-schedule">
+            <h6 id="todaydate"></h6>
+        </div>
+
+        <div id="maincontent">
+            <div v-for="task in scheduledetail">
+                <div class="main-task">
+                        <div class="task-schedule">
+                            <div class="task-time"><h6>Time</h6></div>
+                            <div class="task-time"><h6>{{ tasktime(task) }}</h6></div>
+                            <div class="task-button">
+                            <svg class="bi bi-circle-fill" width="2em" height="2em" viewBox="0 0 16 16" v-bind:fill="task.taskbtnstatus" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8"/>
+                            </svg>
+                            </div>
+                            <div class="task-status">
+                                <h6>{{ iscompleted(task) }}</h6>
+                            </div>
+                        </div>
+
+                        <div class="task-detail">
+                            <div class="task-name"><h6>{{ task.taskname }}</h6></div>
+                            <div class="task-description"><p>{{ task.description }}</p></div>
+                            <p>Assigned To</p>
+                            <div class="task-user" v-for="taskUser in task.taskusers">
+                                <div class="user-status"><svg class="bi bi-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" v-bind:fill="taskUser.status" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8"/>
+                                </svg></div>
+                                <div class="user-name"><h6>{{ taskUser.firstname }}</h6></div>
+                            </div>
+
+                            <div class="task-manager"><h6>{{ managerstat(task) }}</h6></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="main-footer">
+            <p>Copyright &copy; 2020<br>
+                <svg class="bi bi-shop-window" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3.12 1.175A.5.5 0 0 1 3.5 1h9a.5.5 0 0 1 .38.175l2.759 3.219A1.5 1.5 0 0 1 16 5.37v.13h-1v-.13a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.13H0v-.13a1.5 1.5 0 0 1 .361-.976l2.76-3.22z"/>
+                    <path d="M2.375 6.875c.76 0 1.375-.616 1.375-1.375h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 1 0 2.75 0h1a2.375 2.375 0 0 1-4.25 1.458 2.371 2.371 0 0 1-1.875.917A2.37 2.37 0 0 1 8 6.958a2.37 2.37 0 0 1-1.875.917 2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.5h1c0 .76.616 1.375 1.375 1.375z"/>
+                    <path d="M4.75 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM2 8.854V15h12V8.854a3.354 3.354 0 0 0 1-.27V15h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V8.583c.311.14.647.232 1 .271zm0-1.008V7H1v.437c.291.207.632.35 1 .409zm13-.409c-.291.207-.632.35-1 .409V7h1v.437z"/>
+                    <path d="M4 13V9H3v4a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9h-1v4H4z"/>
+                </svg>
+            The Shop<br>
+                <svg class="bi bi-geo-alt" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+            123 Main Road Modbury, SA 5092<br>
+                <svg class="bi bi-phone" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+                    <path fill-rule="evenodd" d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                </svg>
+            8395 2800
+            </p>
+        </footer>
+
+        <script src="/javascripts/jscript.js"></script>
+
+    </body>
+</html>
