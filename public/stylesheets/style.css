@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main-header {
+    background-color: royalblue;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+#main-header::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#main-header h1 {
+    margin: 0.5rem;
+    float: left;
+}
+
+#main-header a {
+    color: white;
+}
+
+.header-buttons {
+    float: right;
+    margin-top: 0.8rem;
+}
+
+#main-footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.today-schedule h6 {
+    text-align: center;
+    font-weight: bold;
+    margin: 1rem;
+}
+
+.main-task {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.task-schedule {
+    background-color: lightgrey;
+    text-align: center;
+    width: 15%;
+    margin-right: 1rem;
+    float: left;
+    border: solid 1px;
+    border-radius: 2rem;
+}
+
+.task-time h6 {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.task-button {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.task-detail {
+    background-color: lightgrey;
+    text-align: center;
+    width: 80%;
+    float: right;
+    border: solid 1px;
+    border-radius: 2rem;
+}
+
+.task-name h6 {
+    font-weight: bold;
+    margin-top: 1rem;
+    text-decoration: underline;
+}
+
+.user-status {
+    display: inline-block;
+}
+
+.user-name {
+    display: inline-block;
+}
+
+.main-task::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.task-manager {
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.signin-form {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.signin-form form {
+    padding-top: 1rem;
+}
+
+.signin-form label {
+    font-weight: bold;
+}
+
+.register {
+    margin-top: 2rem;
+}
+
+.preferences {
+    margin-left: 10%;
+    margin-top: 1rem;
+    width: 80%;
+    float: left;
+
+}
+
+.availability {
+    background-color: lightgray;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: solid 1px;
+    border-radius: 2rem;
+}
+
+.type-of-task {
+    background-color:lightgray;
+}
+
+.available-day {
+    margin-left: 45%;
+}
+
+.edits {
+    background-color: lightgray;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: solid 1px;
+    border-radius: 2rem;
+}
+
+.edits p {
+    display: inline;
+}
+
+.edits a {
+    float: right;
+}
+
+.edit {
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: gray;
+    position: absolute;
+    overflow: auto;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  li a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  .task-detail2 {
+    background-color: lightgrey;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 1rem;
+    width: 80%;
+    float: left;
+    border: solid 1px;
+    border-radius: 2rem;
+}
+
+.edit-task {
+    padding-bottom: 1rem;
+}
+
+.edit-task h6 {
+    display: inline;
+}
+
+.edit-task a {
+    float: right;
+    margin-right: 1rem;
+}
+
+.entry {
+    margin-top: 1rem;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.entry h6 {
+    display: inline;
+    float: left;
+}
